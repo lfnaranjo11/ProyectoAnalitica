@@ -39,7 +39,9 @@ class Componente2 extends Component{
     PROMESA_CB=()=>{
         let promesa1 = axios.get(this.state.url);
            promesa1.then((res) => {
+            this.setState({myData:res.data});   
             console.log(res.data);
+            this.props.DataFun(res.data);
             });
              
            promesa1.catch(() => alert("no se pudo comunicar con DATOS.GOV")); 
@@ -59,7 +61,6 @@ class Componente2 extends Component{
             <input type="submit"  value="Guardar" />
         </form>
         <div>
-
         </div>
       
         </div>

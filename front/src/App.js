@@ -12,8 +12,8 @@ function App() {
       
       
         <Component1></Component1>  
-          
-          <Componente2></Componente2>
+          <NavioComponent></NavioComponent>
+  
       
       </header>
     </div>

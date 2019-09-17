@@ -33,6 +33,7 @@ class Component1 extends Component{
         <h1> HOLA MMJC
         </h1>
         
+        
         )
     }   
 
