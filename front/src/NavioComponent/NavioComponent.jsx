@@ -1,5 +1,5 @@
 import React from 'react';
-import Navio from 'navio';
+import navio from 'navio';
 
 class NavioComponent extends React.Component{
 
@@ -11,6 +11,7 @@ class NavioComponent extends React.Component{
         this.myUpdate=this.myUpdate.bind(this);
     }
     componentDidMount(){
+
         this.myUpdate();
 
     }

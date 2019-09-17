@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Component1 from './components/Component1/Component1';
 import Componente2 from './components/Componente2/Componente2';
@@ -15,7 +14,6 @@ function App() {
         <Component1></Component1>  
           
           <Componente2></Componente2>
-          <NavioComponent></NavioComponent>
       
       </header>
     </div>
