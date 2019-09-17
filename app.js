@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var dataBaseRouter = require('./routes/dataBase');
 var usersRouter = require('./routes/users');
 var mLabDataBase = require('./routes/mLab');
+var RESTfile = require('./routes/REST');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/dataBase',dataBaseRouter);
 app.use('/mLab',mLabDataBase);
+app.use('/basicCRUD',RESTfile);
 
 
 // catch 404 and forward to error handler
