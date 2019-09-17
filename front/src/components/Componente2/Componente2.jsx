@@ -1,6 +1,6 @@
 import React,{Component}  from 'react';
 import axios from "axios";
-import navio from 'navio';
+
 
 
 class Componente2 extends Component{
@@ -12,7 +12,7 @@ class Componente2 extends Component{
           };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit =this.handleSubmit.bind(this);
-        const nv = new navio(this.Mydiv,600);
+
     }
     componentDidMount(){
     
@@ -29,7 +29,7 @@ class Componente2 extends Component{
            this.setState({ url: event.target.value });
           let promesa1 = axios.get(this.state.url);
            promesa1.then((res) => {
-
+            //{this.props.NAVIOData}=res;
             console.log(res);
            
               });
@@ -53,9 +53,7 @@ class Componente2 extends Component{
             <input type="text" placeholder="url" value={this.state.url} onChange={this.handleChange} />
             <input type="submit"  value="Guardar" />
         </form>
-         <div>
-             
-        </div>   
+            
       
         </div>
         )
