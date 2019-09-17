@@ -18,8 +18,11 @@ class Component1 extends Component{
             }
           });
           promesa.then(res => {
-             this.setState({NOMBRES:res.data});
-          });
+              
+          
+            this.setState({NOMBRES:res});
+        console.log(this.state.NOMBRES);  
+        });
           promesa.catch(()=> console.log("pailas. serividor desconectado"));
           
         }
@@ -27,7 +30,7 @@ class Component1 extends Component{
 
     render(){
         return(
-        <h1> HOLA MAJo
+        <h1> HOLA MMJC
         </h1>
         
         )

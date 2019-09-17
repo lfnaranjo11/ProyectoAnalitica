@@ -2,24 +2,21 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Component1 from './components/Component1/Component1';
+import Componente2 from './components/Componente2/Componente2';
+import NavioComponent from './NavioComponent/NavioComponent';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        
+      
+      
         <Component1></Component1>  
-          Learn React
-        </a>
+          
+          <Componente2></Componente2>
+          <NavioComponent></NavioComponent>
+      
       </header>
     </div>
   );
