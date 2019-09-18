@@ -24,7 +24,7 @@ function getCalback(resolve,reject){
         let promise2 = collection.find({}).toArray();
         promise2.then((TESTS) => {
         //client.close();
-        console.log("la coleccion BISTA EN CRUD",TESTS);
+        console.log("la coleccion vISTA",TESTS);
         resolve(TESTS);
     });
 
@@ -35,7 +35,24 @@ function getCalback(resolve,reject){
 
 }
 
+function postCallBack(querry,resolve,reject){
 
+  const promise1=client.connect();
+  promise1.then(() => {
+      const db = client.db("parcialDB");
+      const collection = db.collection("test");
+      let promise2 = collection.insertOne(querry);
+      promise2.then((rest) => {
+      //client.close();
+      resolve(TESTS);
+  });
+
+      promise2.catch((err) => reject(err));
+  });
+
+  promise1.catch((err) => console.log(err));
+
+}
 
 
 router.get('/', (req, res) => {

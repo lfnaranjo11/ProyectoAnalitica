@@ -31,19 +31,38 @@ class Componente2 extends Component{
      }
 
     handleSubmit(event) {
-            event.preventDefault();
-           this.setState({ url: event.target.value });
-          this.PROMESA_CB();
+        event.preventDefault();
+        this.setState({ url: event.target.value });
+        this.PROMESA_CB();
+        this.SAVEQUERRYS();
+    }
+
+    SAVEQUERRYS=()=>{
+        
+        let fila={};
+        fila.nombre= this.state.url_uncontrolled;
+        console.log("la url que quiero guardar es",this.state.url)
+        let promesa1 = axios.post("/basicCRUD", fila);
+        promesa1.then((res) => {
+         console.log(res.data);
+         });
+          
+        promesa1.catch(() => alert("no se pudo comunicar con el back")); 
+
+
     }
 
     PROMESA_CB=()=>{
         let promesa1 = axios.get(this.state.url);
-           promesa1.then((res) => {
+           let promesa2=promesa1.then((res) => {
             this.setState({myData:res.data});   
             console.log(res.data);
             this.props.DataFun(res.data);
-            });
+            
+           // promesa2.then(()=>{SAVEQUERRYS});
+        });
              
+
            promesa1.catch(() => alert("no se pudo comunicar con DATOS.GOV")); 
 
     }
