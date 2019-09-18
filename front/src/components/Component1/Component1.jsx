@@ -31,10 +31,17 @@ class Component1 extends Component{
 
     render(){
         return(
+          <div>
         <h1> HOLA MMJC
           <button onClick={this.name}>click me</button>
         </h1>
-        
+        <ul>
+          const listItems = NOMBRES.map((number) =>
+          <li key={number.toString()}>
+          {number}
+          </li>
+        </ul>
+        </div>
         
         )
     }   

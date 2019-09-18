@@ -23,7 +23,7 @@ function getCalback(resolve,reject){
         const collection = db.collection("test");
         let promise2 = collection.find({}).toArray();
         promise2.then((TESTS) => {
-        client.close();
+        //client.close();
         console.log("la coleccion BISTA EN CRUD",TESTS);
         resolve(TESTS);
     });
@@ -47,6 +47,12 @@ router.get('/', (req, res) => {
 
 
 
-
+  router.post("", (req, res) => {
+    let body = req.body;
+    postCallBack(body,
+      (bolso) => res.json(bolso),
+      (err) => res.json(err)
+    );
+  });
 
 module.exports = router;
