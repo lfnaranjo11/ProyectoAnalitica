@@ -8,7 +8,8 @@ class NavioComponent extends React.Component{
         super(props);
         this.state ={
             myDiv : null,
-            myData :[]
+            myData :[],
+            nv:null,
         };
         this.myUpdate=this.myUpdate.bind(this);
     }
@@ -18,7 +19,7 @@ class NavioComponent extends React.Component{
 
     }
     myUpdate(){
-        new navio(this.myDiv,600);
+       this.state.nv= new navio(this.myDiv,600);
     }
 
     componentDidUpdate(){
@@ -28,6 +29,8 @@ class NavioComponent extends React.Component{
     }
     myDataFun=(datos) =>{
         this.setState({myData:datos});
+       this.state.nv.data(this.state.myData);
+        this.state.nv.addAllAttribs();
     }
        
 
