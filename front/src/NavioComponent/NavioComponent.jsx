@@ -1,7 +1,7 @@
 import React from 'react';
 import navio from 'navio';
 import Componente2 from '../components/Componente2/Componente2';
-
+import Componente1 from '../components/Component1/Component1';
 class NavioComponent extends React.Component{
 
     constructor(props){
@@ -33,6 +33,7 @@ class NavioComponent extends React.Component{
         this.state.nv.addAllAttribs();
     }
        
+   
 
     render(){
         return(
@@ -40,7 +41,8 @@ class NavioComponent extends React.Component{
                 <div ref={myDiv => this.myDiv=myDiv}>
               
               </div>
-              <Componente2 DataFun={this.myDataFun} ></Componente2>  
+              <Componente2 DataFun={this.myDataFun} ></Componente2> 
+              <Componente1 DataFun={this.myDataFun}></Componente1> 
             </div>
                 
 

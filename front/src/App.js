@@ -11,7 +11,6 @@ function App() {
         
       
       
-        <Component1></Component1>  
           <NavioComponent></NavioComponent>
   
       
