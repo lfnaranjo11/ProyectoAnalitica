@@ -11,26 +11,28 @@ class Component1 extends Component{
     }
 
 
+
     componentDidMount(){
-        let promesa = axios.get("http://localhost:3001/basicCRUD/",{
+   
+        }
+        name= ()=>{
+          
+          let promesa = axios.get("/basicCRUD",{
             headers: {
               "Content-Type": "application/x-www-form-urlencoded"
             }
           });
           promesa.then(res => {
-              
-          
             this.setState({NOMBRES:res});
         console.log(this.state.NOMBRES);  
         });
-          promesa.catch(()=> console.log("pailas. serividor desconectado"));
-          
+          promesa.catch((err)=> console.log("pailas. serividor desconectado",err));
         }
-
 
     render(){
         return(
         <h1> HOLA MMJC
+          <button onClick={this.name}>click me</button>
         </h1>
         
         

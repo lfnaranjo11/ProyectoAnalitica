@@ -13,9 +13,7 @@ router.use(function (req, res, next) {
     next();
   });
 
-router.use(express.json());
 
-const app = express();
 
 function getCalback(resolve,reject){
 
@@ -29,6 +27,7 @@ function getCalback(resolve,reject){
         console.log("la coleccion BISTA EN CRUD",TESTS);
         resolve(TESTS);
     });
+
         promise2.catch((err) => reject(err));
     });
 
