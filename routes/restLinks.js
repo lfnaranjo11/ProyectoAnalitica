@@ -13,8 +13,6 @@ router.use(function (req, res, next) {
     next();
   });
 
-
-
 function getCalback(resolve,reject){
 
     const promise1=client.connect();
@@ -42,9 +40,9 @@ function postCallBack(querry,resolve,reject){
       const db = client.db("parcialDB");
       const collection = db.collection("test");
       let promise2 = collection.insertOne(querry);
-      promise2.then((rest) => {
+      promise2.then((res) => {
       //client.close();
-      resolve(TESTS);
+      resolve(res);
   });
 
       promise2.catch((err) => reject(err));
