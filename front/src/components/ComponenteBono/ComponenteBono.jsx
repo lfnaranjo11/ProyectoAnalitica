@@ -13,17 +13,20 @@ class ComponenteBono extends Component{
             list:[],
             resultados:[]
           };
-           let offset=0;
-      let lista=[];
-      for(offset=0;offset<1000;offset+=400){
-          lista= [...lista, offset];
-      }
-      this.setState({list:lista});
+       
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit =this.handleSubmit.bind(this);
        // this.PROMESA_CB =this.PROMESA_CB.bind(this);
         //this.PROMESA_RECURSIVE =this.PROMESA_RECURSIVE.bind(this);
 
+    }
+    componentDidMount(){
+        let offset=0;
+        let lista=[];
+        for(offset=0;offset<10000;offset+=400){
+            lista= [...lista, offset];
+        }
+        this.setState({list:lista});
     }
     handleChange(event) {
         this.setState({ url: event.target.value });
@@ -39,7 +42,7 @@ class ComponenteBono extends Component{
        // this.SAVEQUERRYS();
       // this.onAddItem();
      
-      this.hacerPromises();
+    this.hacerPromises();
        //this.hacerArreglo();
     }
 
@@ -62,8 +65,9 @@ class ComponenteBono extends Component{
     }
      
     async hacerPromises(){
-        const base_url={...this.state.url_uncontrolled};
+        const base_url=this.state.url_uncontrolled;
         const limit=100;
+        console.log(base_url);
         /*const results= await Promise.all( this.state.list.map(async(item)=>{
         try{
             const res= await axios.get(`${base_url}?$limit=${limit}&$offset=${item}`);
@@ -78,16 +82,15 @@ class ComponenteBono extends Component{
         );*/
     
 
-          Promise.all( 
-              [
-            
-            fetch(`https://www.datos.gov.co/resource/9ssf-i6c5.json?$limit=200&$offset=500`),
+        const results=Promise.all( 
               
-                
-             fetch(`https://www.datos.gov.co/resource/9ssf-i6c5.json?$limit=200&$offset=700`),
+                  this.state.list.map(async item=>{
+            
+                     return await axios.get(`${base_url}?$limit=${limit}&$offset=${item}`);
+                  })
                
             
-              ]
+           
            
             ).then(function(values) {
                 console.log(values);
