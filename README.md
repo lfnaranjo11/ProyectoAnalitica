@@ -3,12 +3,15 @@
 proyecto que permite visualizar con navio datos de datos.gov.co
 
 **tecnologias usadas**
+
 react
 mongo
 
 
 **to run**
+
 prerrequistios
+$```hola ```
 1) npm install on ProyectoAnalitica
 2) npm  install on  ./proyectoAnalitica/front
 
@@ -16,7 +19,8 @@ prerrequistios
 1)go to console on ProyectoAnalitica and then type npm start
 2)go to console on./proyectoAnalitica/front and then type npm start
 
-  
+**despplegado en**
+
 
 **autor **
 
