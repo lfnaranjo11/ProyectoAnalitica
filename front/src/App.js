@@ -3,13 +3,14 @@ import './App.css';
 import Component1 from './components/Component1/Component1';
 import Componente2 from './components/Componente2/Componente2';
 import NavioComponent from './NavioComponent/NavioComponent';
+import ComponenteBono from './components/ComponenteBono/ComponenteBono';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         
-      
+        <ComponenteBono></ComponenteBono>
       
           <NavioComponent></NavioComponent>
   

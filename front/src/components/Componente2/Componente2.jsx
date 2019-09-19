@@ -18,16 +18,13 @@ class Componente2 extends Component{
 
     }
     componentDidMount(){
-    
-          
+         
     }
 
      handleChange(event) {
-
-        this.setState({ url: event.target.value });
+         this.setState({ url: event.target.value });
         this.setState({url_uncontrolled: event.target.value});
         event.preventDefault();
-
      }
 
     handleSubmit(event) {
@@ -38,7 +35,6 @@ class Componente2 extends Component{
     }
 
     SAVEQUERRYS=()=>{
-        
         let fila={};
         fila.nombre= this.state.url_uncontrolled;
         console.log("la url que quiero guardar es",this.state.url)
@@ -48,8 +44,6 @@ class Componente2 extends Component{
          });
           
         promesa1.catch(() => alert("no se pudo comunicar con el back")); 
-
-
     }
 
     PROMESA_CB=()=>{
@@ -57,9 +51,8 @@ class Componente2 extends Component{
            let promesa2=promesa1.then((res) => {
             this.setState({myData:res.data});   
             console.log(res.data);
-            this.props.DataFun(res.data);
-            
-           // promesa2.then(()=>{SAVEQUERRYS});
+            this.props.DataFun(res.data);    
+          promesa2.then(()=>{this.SAVEQUERRYS()});
         });
              
 
