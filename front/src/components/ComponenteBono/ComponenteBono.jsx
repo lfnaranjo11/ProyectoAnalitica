@@ -9,15 +9,12 @@ class ComponenteBono extends Component{
             url: null,
             url_uncontrolled: null,
             myData: [],
-            currentData:[],
             list:[],
             resultados:[]
           };
        
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit =this.handleSubmit.bind(this);
-       // this.PROMESA_CB =this.PROMESA_CB.bind(this);
-        //this.PROMESA_RECURSIVE =this.PROMESA_RECURSIVE.bind(this);
 
     }
     componentDidMount(){
@@ -34,21 +31,12 @@ class ComponenteBono extends Component{
        event.preventDefault();
     }
 
-    handleSubmit(event) {
+   async handleSubmit(event) {
         event.preventDefault();
         this.setState({ url: event.target.value });
-        //this.PROMESA_RECURSIVE();
-       // this.createPromisesURL();
-       // this.SAVEQUERRYS();
-      // this.onAddItem();
-      fetch('http://example.com/movies.json')
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(myJson) {
-        console.log(JSON.stringify(myJson));
-      });
-   // this.hacerPromises();
+        let newDatos=[];
+         this.hacerPromises(newDatos);
+    //setTimeout(this.setState({myData:[2,3]}),8000))
        //this.hacerArreglo();
     }
 
@@ -70,69 +58,35 @@ class ComponenteBono extends Component{
         this.setState({list:lista});
     }
      
-    async hacerPromises(){
+    async hacerPromises(newDatos){
+
+    let P =  new  Promise(async()=>{
+    
         const base_url=this.state.url_uncontrolled;
-        const limit=100;
+        const limit=400;
+         let newDatosA=[];
 
         const results=Promise.all( 
-              
-                  this.state.list.map(async item=>{
-            
-                     return await fetch(`${base_url}?$limit=${limit}&$offset=${item}`);
+                this.state.list.map(async item=>{
+                    return await axios.get(`${base_url}?$limit=${limit}&$offset=${item}`);
                   })
                
-            
-           
-           
-            ).then(function(response) {
-                return response.json();
-            }).then(function(myJson) {
-                console.log(JSON.stringify(myJson));
-              });
+            ).then( function(response){
 
-
-        
+               
+               response.map(async x =>{ 
+                  x.data.map((j)=>{
+                    newDatosA=[...newDatosA,j]
+               });
+             
+               })
+             console.log(newDatosA);
+            });
+            return await newDatosA;
+        });
+        P.then((x)=>{this.setState({myData:x})})
+    
     }
-
-    hacerArreglo=()=>{
-        let offset=0;
-        let lista=[];
-        for(offset=0;offset<1000;offset+=400){
-            lista= [...lista, offset];
-
-        }
-        this.setState({list:lista});
-    }
-
-     //async PROMESA_CB(new_url) {
-       // console.log(await axios.get(url));
-        //promesa1.then((res)=>{console.log(res.data)});
-        //promesa1.catch(() =>console.log("error cacheado"));
-       // console.log(promesa1);
-        
-      
-   // }
-
-
-  /*  async PROMESA_RECURSIVE(){
-        let offSet=0;
-        let limit= 200;
-        let new_url=`${this.state.url_uncontrolled}?$limit=${limit}&$offset=${offSet}`;
-        let continua=true;
-        console.log(new_url);
-        while(continua)
-        {   
-        new_url=`${this.state.url_uncontrolled}?$limit=${limit}&$offset=${offSet}`;
-        offSet+= 200;
-        //setTimeout( () => {this.PROMESA_CB(new_url)}, 1000);
-        await this.PROMESA_CB(new_url);
-        console.log("hola");
-        continua =offSet> 50000?false:true;
-        }
-    }*/
-
-
-
 
     render(){
         return(

@@ -9,13 +9,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        
-        <ComponenteBono></ComponenteBono>
-      
-          <NavioComponent></NavioComponent>
-  
-      
+              
+      <NavioComponent></NavioComponent>
       </header>
+      
     </div>
   );
 }

@@ -66,7 +66,7 @@ class Component1 extends Component{
     render(){
         return(
           <div>
-            <h1> HOLA MMJC
+            <h1> Componente Busquedas recientes
 
             <button onClick={this.name}>Mostrar recientes</button>
             </h1>
