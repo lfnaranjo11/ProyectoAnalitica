@@ -41,8 +41,14 @@ class ComponenteBono extends Component{
        // this.createPromisesURL();
        // this.SAVEQUERRYS();
       // this.onAddItem();
-     
-    this.hacerPromises();
+      fetch('http://example.com/movies.json')
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(myJson) {
+        console.log(JSON.stringify(myJson));
+      });
+   // this.hacerPromises();
        //this.hacerArreglo();
     }
 
@@ -67,38 +73,24 @@ class ComponenteBono extends Component{
     async hacerPromises(){
         const base_url=this.state.url_uncontrolled;
         const limit=100;
-        console.log(base_url);
-        /*const results= await Promise.all( this.state.list.map(async(item)=>{
-        try{
-            const res= await axios.get(`${base_url}?$limit=${limit}&$offset=${item}`);
-           return res;
-        }
-        catch(e){
-
-        }
-        })
-
-
-        );*/
-    
 
         const results=Promise.all( 
               
                   this.state.list.map(async item=>{
             
-                     return await axios.get(`${base_url}?$limit=${limit}&$offset=${item}`);
+                     return await fetch(`${base_url}?$limit=${limit}&$offset=${item}`);
                   })
                
             
            
            
-            ).then(function(values) {
-                console.log(values);
+            ).then(function(response) {
+                return response.json();
+            }).then(function(myJson) {
+                console.log(JSON.stringify(myJson));
               });
 
 
-      //  console.log(results[0]);
-       // this.setState({resultados:results});
         
     }
 
