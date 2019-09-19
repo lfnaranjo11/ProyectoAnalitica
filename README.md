@@ -37,7 +37,7 @@ https://www.mongodb.com/download-center
 
 1) clone or sownload
 
-```https://github.com/lfnaranjo11/ProyectoAnalitica.git```
+```git clone https://github.com/lfnaranjo11/ProyectoAnalitica.git```
 
 
 2) npm install on root
