@@ -10,17 +10,68 @@ mongo
 
 **to run**
 
-prerrequistios
-$```hola ```
-1) npm install on ProyectoAnalitica
-2) npm  install on  ./proyectoAnalitica/front
+**prerrequistes**
+1) install node
+
+https://nodejs.org/en/
 
 
-1)go to console on ProyectoAnalitica and then type npm start
-2)go to console on./proyectoAnalitica/front and then type npm start
+```sudo install node ```
 
-**despplegado en**
+2) install mongod
 
+https://www.mongodb.com/download-center
+
+```nopm install node ```
+
+3) install react-create-app
+
+```npm install react-create-app ```
+
+
+4) install heroku
+```npm i heroku````
+
+
+**how to run locally**
+
+1) clone or sownload
+
+```https://github.com/lfnaranjo11/ProyectoAnalitica.git```
+
+
+2) npm install on root
+
+```cd ProyectoAnalitica```
+
+```npm install```
+
+2) npm install on  ./proyectoAnalitica/front
+
+```cd ./proyectoAnalitica/front```
+
+```npm install```
+
+3)go to console on ProyectoAnalitica and then type npm start
+
+```npm start```
+
+4)go to console on./proyectoAnalitica/front and then type npm start
+
+```npm start```
+
+
+**common isuses**
+
+a. when deploying sometimes it´s necesarry to run npm install axios both in root as good as in ./proyectoAnalitica/front 
+
+b. the back-end tends to fall.
+
+
+
+**deploy at**
+
+https://agile-dusk-13243.herokuapp.com
 
 **autor **
 
